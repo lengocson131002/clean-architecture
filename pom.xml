@@ -27,6 +27,12 @@
         <verson.jackson-databind>2.16.0</verson.jackson-databind>
         <version.vertx>4.5.0</version.vertx>
         <version.gson>2.10.1</version.gson>
+        <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
+        <launcher.class>vn.com.ocb.Main</launcher.class>
+        <version.kafka-client>3.6.1</version.kafka-client>
+        <version.sl4j-api>2.0.9</version.sl4j-api>
+        <version.sl4j-simple>2.0.9</version.sl4j-simple>
+        <version.jackson>2.16.0</version.jackson>
     </properties>
 
     <dependencyManagement>
@@ -74,6 +80,21 @@
                 <groupId>javax.inject</groupId>
                 <artifactId>javax.inject</artifactId>
                 <version>1</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-clients</artifactId>
+                <version>${version.kafka-client}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.fasterxml.jackson.dataformat</groupId>
+                <artifactId>jackson-dataformat-xml</artifactId>
+                <version>${version.jackson}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${version.sl4j-simple}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -9,15 +9,15 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.ext.web.handler.LoggerHandler;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import vn.com.rest.handler.FailureHandler;
 import vn.com.rest.handler.UserHandler;
 
 import javax.inject.Inject;
 
+@Slf4j
 @RequiredArgsConstructor(onConstructor = @__(@Inject))
 public class ServerVerticle extends AbstractVerticle {
-
-    private static final Logger logger = LoggerFactory.getLogger(ServerVerticle.class);
 
     private final HttpServer httpServer;
     private final UserHandler userHandler;
@@ -31,10 +31,10 @@ public class ServerVerticle extends AbstractVerticle {
                 .requestHandler(router)
                 .listen()
                 .onSuccess(res -> {
-                    logger.info("✅ Server started successfully...");
+                    log.info("✅ Server started successfully...");
                     startPromise.complete();
                 }).onFailure(throwable -> {
-                    logger.info("✅ Server started failed..");
+                    log.info("✅ Server started failed..");
                     startPromise.fail(throwable);
                 });
     }

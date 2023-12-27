@@ -40,10 +40,10 @@ public class UpdateUserHandler implements Command.Handler<UpdateUserRequest, Use
                     }
                     return user;
                 }).thenApplyAsync(user -> {
-                    user.setEmail(user.getEmail())
-                            .setPassword(passwordEncoder.encode(user.getPassword()))
-                            .setFirstName(user.getFirstName())
-                            .setLastName(user.getLastName());
+                    user.setEmail(request.getEmail())
+                            .setPassword(passwordEncoder.encode(request.getPassword()))
+                            .setFirstName(request.getFirstName())
+                            .setLastName(request.getLastName());
 
                     return userRepository.update(user);
                 }).thenApplyAsync(userMapper::toResponse)

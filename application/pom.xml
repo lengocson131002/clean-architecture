@@ -1,1 +1,113 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0"         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">    <parent>        <artifactId>clean-architecture-demo</artifactId>        <groupId>vn.com.ocb</groupId>        <version>1.0-SNAPSHOT</version>    </parent>    <modelVersion>4.0.0</modelVersion>    <artifactId>app</artifactId>    <properties>        <maven.compiler.source>11</maven.compiler.source>        <maven.compiler.target>11</maven.compiler.target>    </properties>    <dependencies>        <dependency>            <groupId>com.google.dagger</groupId>            <artifactId>dagger</artifactId>        </dependency>        <dependency>            <groupId>com.google.dagger</groupId>            <artifactId>dagger-compiler</artifactId>            <optional>true</optional>        </dependency>        <dependency>            <groupId>vn.com.ocb</groupId>            <artifactId>core</artifactId>            <version>${project.version}</version>        </dependency>        <dependency>            <groupId>vn.com.ocb</groupId>            <artifactId>infrastructure</artifactId>            <version>${project.version}</version>        </dependency>        <dependency>            <groupId>vn.com.ocb</groupId>            <artifactId>presentation</artifactId>            <version>${project.version}</version>        </dependency>    </dependencies>    <build>        <pluginManagement>            <plugins>                <plugin>                    <groupId>org.apache.maven.plugins</groupId>                    <artifactId>maven-compiler-plugin</artifactId>                    <version>${version.maven-compiler}</version>                    <configuration>                        <annotationProcessorPaths>                            <path>                                <groupId>org.projectlombok</groupId>                                <artifactId>lombok</artifactId>                                <version>${version.lombok}</version>                            </path>                            <path>                                <groupId>com.google.dagger</groupId>                                <artifactId>dagger-compiler</artifactId>                                <version>${version.dagger}</version>                            </path>                        </annotationProcessorPaths>                    </configuration>                </plugin>            </plugins>        </pluginManagement>    </build></project>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>clean-architecture-demo</artifactId>
+        <groupId>vn.com.ocb</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>application</artifactId>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.dagger</groupId>
+            <artifactId>dagger</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.google.dagger</groupId>
+            <artifactId>dagger-compiler</artifactId>
+            <optional>true</optional>
+        </dependency>
+        <dependency>
+            <groupId>vn.com.ocb</groupId>
+            <artifactId>core</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>vn.com.ocb</groupId>
+            <artifactId>infrastructure</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>vn.com.ocb</groupId>
+            <artifactId>presentation</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${version.maven-compiler}</version>
+                <configuration>
+                    <annotationProcessorPaths>
+                            <path>
+                                <groupId>org.projectlombok</groupId>
+                                <artifactId>lombok</artifactId>
+                                <version>${version.lombok}</version>
+                            </path>
+                        <path>
+                            <groupId>com.google.dagger</groupId>
+                            <artifactId>dagger-compiler</artifactId>
+                            <version>${version.dagger}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>${maven-shade-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <filters>
+                                <filter>
+                                    <artifact>*:*</artifact>
+                                    <excludes>
+                                        <exclude>META-INF/*.SF</exclude>
+                                        <exclude>META-INF/*.DSA</exclude>
+                                        <exclude>META-INF/*.RSA</exclude>
+                                    </excludes>
+                                </filter>
+                            </filters>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <manifestEntries>
+                                        <Main-Class>${launcher.class}</Main-Class>
+                                    </manifestEntries>
+                                </transformer>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                            </transformers>
+                            <outputFile>
+                                ${project.build.directory}/${project.artifactId}-${project.version}-fat.jar
+                            </outputFile>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

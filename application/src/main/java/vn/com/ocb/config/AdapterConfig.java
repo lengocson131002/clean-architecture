@@ -29,6 +29,5 @@ public final class AdapterConfig {
         @Singleton
         PasswordEncoder bindPasswordEncoder(PasswordEncoderImpl passwordEncoder);
     }
-    // Other @Provides dependencies
 
 }

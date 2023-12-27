@@ -1,12 +1,16 @@
 package vn.com.rest.handler;
 
 import an.awesome.pipelinr.Pipeline;
-import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
 import lombok.RequiredArgsConstructor;
+import vn.com.ocb.adapter.config.KafkaRequestNotifier;
+import vn.com.ocb.config.RequestNotifier;
+import vn.com.ocb.exception.ResponseCode;
+import vn.com.ocb.model.BaseResponse;
 import vn.com.ocb.usecase.auth.model.LoginRequest;
 import vn.com.ocb.usecase.user.model.*;
+import vn.com.ocb.usecase.user.v2.model.GetAllUserRequestV2;
 import vn.com.rest.utils.ResponseHelper;
 
 import javax.inject.Inject;
@@ -16,6 +20,8 @@ import java.util.List;
 public class UserHandler {
 
     private final Pipeline pipeline;
+
+//    private final RequestNotifier notifier;
 
     public void handleLoginUser(RoutingContext rc) {
         JsonObject reqBody = rc.body().asJsonObject();
@@ -31,9 +37,20 @@ public class UserHandler {
     }
 
     public void handleGetAllUsers(RoutingContext rc) {
-        List<UserResponse> res = pipeline.send(new GetAllUserRequest());
-        JsonArray usersResponse = new JsonArray(res);
-        ResponseHelper.sendJson(rc, usersResponse);
+        RequestNotifier<GetAllUserRequestV2, List<UserResponse>> requestNotifier = new KafkaRequestNotifier<>(GetAllUserRequestV2.class);
+        requestNotifier.send(new GetAllUserRequestV2())
+                .whenComplete((res, thr) -> {
+                    if (thr == null) {
+                        ResponseHelper.sendJson(rc, res);
+                    } else {
+                        BaseResponse<Object> response = BaseResponse
+                                .builder()
+                                .code(ResponseCode.INTERNAL_SERVER_ERROR.getCode())
+                                .message(thr.getMessage())
+                                .build();
+                        ResponseHelper.sendJson(rc, response);
+                    }
+                });
     }
 
     public void handleGetUserById(RoutingContext rc) {
