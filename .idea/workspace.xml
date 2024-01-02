@@ -6,38 +6,31 @@
   <component name="ChangeListManager">
     <list default="true" id="cc822e85-d311-4231-8db2-6ce4d6a1fa60" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/config/ApplicationComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/config/ApplicationComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/application/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/config/CoreConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/config/CoreConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/core/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/config/InvalidRequestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/config/Request.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/config/RequestHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/config/RequestNotifier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/config/RequestTimeoutException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/exception/CoreException.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/exception/CoreException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/exception/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/exception/ResponseCode.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/auth/handler/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/auth/handler/LoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/auth/model/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/auth/model/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/CreateUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/CreateUserHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/GetAllUsersHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/GetAllUsersHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/GetUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/GetUserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/UpdateUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/UpdateUserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/CreateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/CreateUserRequest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/GetAllUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/GetAllUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/GetUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/GetUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/UpdateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/UpdateUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/v2/model/GetAllUserRequestV2.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/v2/model/GetAllUserRequestV2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/java/vn/com/ocb/adapter/config/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/java/vn/com/ocb/adapter/config/KafkaDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaDeserializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/java/vn/com/ocb/adapter/config/KafkaMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/java/vn/com/ocb/adapter/config/KafkaRequestHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/java/vn/com/ocb/adapter/config/KafkaRequestNotifier.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/java/vn/com/ocb/adapter/config/KafkaSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaSerializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/rest/config/Bootstrap.java" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/src/main/java/vn/com/rest/config/Bootstrap.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/UserResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/rest/handler/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/src/main/java/vn/com/rest/handler/UserHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/rest/utils/ResponseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/src/main/java/vn/com/rest/utils/ResponseHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/shared/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/shared/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/exception/CoreException.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/exception/CoreException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/exception/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/exception/ResponseCode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/BaseResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/BaseResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/PageResponseData.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/PageResponse.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/Request.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/Request.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/RequestPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/RequestPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/RequestTimeoutException.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/RequestTimeoutException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/def/DefaultRequestPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/def/DefaultRequestPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaDeserializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaDeserializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaNotifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaNotifier.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaRequestPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaRequestPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaResponseMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaResponseMessage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaSerializer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,16 +161,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/RequestPipeline.java</url>
-          <line>21</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

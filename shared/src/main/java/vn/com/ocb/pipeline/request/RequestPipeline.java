@@ -32,11 +32,14 @@ public abstract class RequestPipeline {
         if (handlers.containsKey(requestType)) {
             throw new RequestHandlerExistedException(handler);
         }
+
         Class<TRequest> requestClass = (Class<TRequest>) requestType;
         Class<TResponse> responseClass = (Class<TResponse>) responseType;
-
         handlers.put(requestClass, handler);
+
+        // Handling after a request handler registered
         onHandlerRegistered(requestClass, responseClass, handler);
+
         return this;
     }
 
@@ -49,10 +52,6 @@ public abstract class RequestPipeline {
             throw new InvalidRequestException(request);
         }
         RequestHandler<TRequest, TResponse> handler = getHandler(request.getClass());
-        if (handler == null) {
-            throw new RequestHandlerNotFoundException(request.getClass());
-        }
-
         return handleRequest(request, handler);
     }
 
@@ -65,12 +64,13 @@ public abstract class RequestPipeline {
     }
 
     public abstract <TRequest extends Request<TResponse>, TResponse> void onHandlerRegistered(
-            Class<TRequest> requestType,
-            Class<TResponse> responseType,
+            Class<TRequest> requestClass,
+            Class<TResponse> responseClass,
             RequestHandler<TRequest, TResponse> handler);
 
 
     public abstract <TRequest extends Request<TResponse>, TResponse> CompletableFuture<TResponse> handleRequest(
-            TRequest request, RequestHandler<TRequest, TResponse> handler);
+            TRequest request,
+            RequestHandler<TRequest, TResponse> handler);
 
 }

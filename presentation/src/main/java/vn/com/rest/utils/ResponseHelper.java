@@ -4,6 +4,7 @@ import io.vertx.core.http.HttpHeaders;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
+import vn.com.ocb.exception.CoreException;
 import vn.com.ocb.exception.ResponseCode;
 import vn.com.ocb.model.BaseResponse;
 
@@ -14,7 +15,7 @@ public class ResponseHelper {
 
     public static Integer DEFAULT_HTTP_STATUS_CODE = 200;
 
-    public static Integer HTTP_STATUS_CODE_INTERNAL_SERVER_ERROR = 200;
+    public static Integer HTTP_STATUS_CODE_INTERNAL_SERVER_ERROR = 500;
 
     public static <T> void sendJson(RoutingContext rc, BaseResponse<T> response, int httpStatusCode) {
         HttpServerResponse httpServerResponse = rc.response();
@@ -39,12 +40,28 @@ public class ResponseHelper {
     }
 
     public static void sendError(RoutingContext rc) {
-        BaseResponse<Object> response = BaseResponse
-                .builder()
-                .code(ResponseCode.INTERNAL_SERVER_ERROR.getCode())
-                .message(ResponseCode.INTERNAL_SERVER_ERROR.getMessage())
-                .data(null)
-                .build();
-        sendJson(rc, response, HTTP_STATUS_CODE_INTERNAL_SERVER_ERROR);
+        sendError(rc, null);
+    }
+
+    public static void sendError(RoutingContext rc, Throwable throwable) {
+        BaseResponse<Object> response = null;
+        if (throwable instanceof CoreException) {
+            CoreException ex = (CoreException) throwable;
+            response = BaseResponse
+                    .builder()
+                    .code(ex.getCode())
+                    .message(ex.getMessage())
+                    .error(ex.getError())
+                    .build();
+            sendJson(rc, response, 400);
+        } else {
+            response = BaseResponse
+                    .builder()
+                    .code(ResponseCode.INTERNAL_SERVER_ERROR.getCode())
+                    .error(ResponseCode.INTERNAL_SERVER_ERROR.getMessage())
+                    .message(ResponseCode.INTERNAL_SERVER_ERROR.getMessage())
+                    .build();
+            sendJson(rc, response, 500);
+        }
     }
 }

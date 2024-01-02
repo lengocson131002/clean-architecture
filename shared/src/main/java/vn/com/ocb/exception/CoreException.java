@@ -1,7 +1,7 @@
 package vn.com.ocb.exception;
 
 public class CoreException extends RuntimeException {
-    private final Integer code;
+    private final String code;
     private final String error;
     private final String errorMessage;
 
@@ -17,13 +17,19 @@ public class CoreException extends RuntimeException {
         this.errorMessage = String.format(responseCode.getMessage(), params);
     }
 
-    public CoreException(Integer errorCode, String message) {
+    public CoreException(String errorCode, String message) {
         this.code = errorCode;
         this.errorMessage = message;
         this.error = "";
     }
 
-    public Integer getCode() {
+    public CoreException(String errorCode, String error, String message) {
+        this.code = errorCode;
+        this.errorMessage = message;
+        this.error = error;
+    }
+
+    public String getCode() {
         return this.code;
     }
 

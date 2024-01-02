@@ -3,18 +3,12 @@ package vn.com.ocb.config;
 import dagger.Module;
 import dagger.Provides;
 import vn.com.ocb.pipeline.request.RequestPipeline;
-import vn.com.ocb.pipeline.request.impl.def.DefaultRequestPipeline;
 import vn.com.ocb.pipeline.request.impl.kafka.KafkaRequestPipeline;
 import vn.com.ocb.usecase.auth.handler.LoginHandler;
-import vn.com.ocb.usecase.auth.model.LoginRequest;
 import vn.com.ocb.usecase.user.handler.CreateUserHandler;
 import vn.com.ocb.usecase.user.handler.GetAllUsersHandler;
 import vn.com.ocb.usecase.user.handler.GetUserHandler;
 import vn.com.ocb.usecase.user.handler.UpdateUserHandler;
-import vn.com.ocb.usecase.user.model.CreateUserRequest;
-import vn.com.ocb.usecase.user.model.GetAllUserRequest;
-import vn.com.ocb.usecase.user.model.GetUserRequest;
-import vn.com.ocb.usecase.user.model.UpdateUserRequest;
 
 import javax.inject.Singleton;
 
@@ -28,7 +22,7 @@ public final class CoreConfig {
             UpdateUserHandler updateUserHandler,
             CreateUserHandler createUserHandler,
             LoginHandler loginHandler) {
-        RequestPipeline pipeline = new DefaultRequestPipeline();
+        RequestPipeline pipeline = new KafkaRequestPipeline();
 
         pipeline
                 .register(getAllUsersHandler)

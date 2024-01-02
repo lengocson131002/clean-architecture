@@ -1,6 +1,7 @@
 package vn.com.ocb.pipeline.request.impl.kafka;
 
 import java.util.Properties;
+import java.util.UUID;
 
 public class KafkaConfig {
     public static final String SERVICE_NAME = "service-user";
@@ -17,6 +18,7 @@ public class KafkaConfig {
 
     public static Properties getConsumerProps() {
         Properties props = new Properties();
+        props.put("client.id", UUID.randomUUID().toString());
         props.put("group.id", KafkaConfig.SERVICE_NAME);
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");

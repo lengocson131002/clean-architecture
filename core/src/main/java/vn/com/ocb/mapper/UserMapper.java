@@ -5,6 +5,7 @@ import vn.com.ocb.usecase.user.model.UserDetailResponse;
 import vn.com.ocb.usecase.user.model.UserResponse;
 
 import javax.inject.Inject;
+import java.time.LocalDateTime;
 
 public class UserMapper {
 
@@ -23,6 +24,7 @@ public class UserMapper {
                 .password(user.getPassword())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
+                .timestamp(LocalDateTime.now())
                 .build();
     }
 

@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Builder
 @Data
 @NoArgsConstructor
@@ -15,4 +17,5 @@ public class UserResponse {
     private String password;
     private String lastName;
     private String firstName;
+    private LocalDateTime timestamp = LocalDateTime.now();
 }

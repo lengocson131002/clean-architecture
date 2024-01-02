@@ -9,14 +9,13 @@ import java.util.concurrent.CompletableFuture;
 
 @Slf4j
 public class DefaultRequestPipeline extends RequestPipeline {
-
     @Override
     public <TRequest extends Request<TResponse>, TResponse> void onHandlerRegistered(
-            Class<TRequest> requestType,
-            Class<TResponse> responseType,
+            Class<TRequest> requestClass,
+            Class<TResponse> responseClass,
             RequestHandler<TRequest, TResponse> handler) {
         // ignore
-        log.info("Registered request handler: {}. Request type: {}", handler.getClass().getName(), requestType);
+        log.info("Registered request handler: {}. Request type: {}. Response type: {}", handler.getClass().getName(), requestClass.getName(), responseClass.getName());
     }
 
     @Override

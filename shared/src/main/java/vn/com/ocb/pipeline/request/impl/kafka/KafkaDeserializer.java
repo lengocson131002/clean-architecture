@@ -15,8 +15,8 @@ public class KafkaDeserializer<T> implements Deserializer<T> {
 
     private final ObjectMapper objectMapper = JsonMapper.builder()
             .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            .findAndAddModules()
             .build();
-
 
     public KafkaDeserializer(TypeReference<T> typeReference) {
         this.typeReference = typeReference;

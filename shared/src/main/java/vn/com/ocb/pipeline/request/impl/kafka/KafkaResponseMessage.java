@@ -8,7 +8,7 @@ import lombok.*;
 @NoArgsConstructor
 public class KafkaResponseMessage<T> {
     private String requestId;
-    private Integer errorCode;
+    private String errorCode;
     private String error;
     private String errorMessage;
     private T data;

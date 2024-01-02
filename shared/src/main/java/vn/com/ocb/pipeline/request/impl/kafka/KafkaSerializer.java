@@ -9,10 +9,15 @@ import org.apache.kafka.common.serialization.Serializer;
 import java.util.Map;
 
 public class KafkaSerializer<T> implements Serializer<T> {
-    private final ObjectMapper objectMapper = JsonMapper
-            .builder()
-            .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
-            .build();
+    private final ObjectMapper objectMapper;
+
+    public KafkaSerializer() {
+        objectMapper = JsonMapper
+                .builder()
+                .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
+                .findAndAddModules()
+                .build();
+    }
 
     @Override
     public void configure(Map<String, ?> configs, boolean isKey) {

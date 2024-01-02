@@ -9,7 +9,7 @@ import java.util.Collection;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class PageResponseData<T> {
+public class PageResponse<T> {
     private Integer pageNumber;
     private Integer pageSize;
     private Long totalSize;

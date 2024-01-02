@@ -5,11 +5,11 @@ public class RequestTimeoutException extends RuntimeException {
     private final String message;
 
     public RequestTimeoutException(String requestId) {
-        message = String.format("Request timeout. Request id: ", requestId);
+        message = String.format("Request timeout. Request id: %s", requestId);
     }
 
     @Override
     public String getMessage() {
-        return super.getMessage();
+        return message;
     }
 }

@@ -1,6 +1,7 @@
 package vn.com.ocb;
 
 import io.vertx.core.http.HttpServerOptions;
+import io.vertx.core.json.jackson.DatabindCodec;
 import io.vertx.sqlclient.Pool;
 import lombok.extern.slf4j.Slf4j;
 import vn.com.ocb.config.ApplicationComponent;
@@ -20,7 +21,8 @@ public class Main {
 
         serverComponent.boot().start();
 
-//        logPool(serverComponent.pool());
+        // Config for timestamp
+        DatabindCodec.mapper().findAndRegisterModules();
     }
 
     private static void logPool(Pool pool) {

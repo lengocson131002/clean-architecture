@@ -6,7 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import vn.com.ocb.pipeline.request.Request;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Data
 @Builder
@@ -15,6 +15,8 @@ import java.util.List;
 public class GetAllUserRequest extends Request<GetAllUserResponse> {
 
     private String search;
+
+    private LocalDateTime timestamp = LocalDateTime.now();
 
     @Override
     public boolean isValid() {
