@@ -1,4 +1,4 @@
-package vn.com.ocb.adapter.config;
+package vn.com.ocb.pipeline.request.impl.kafka;
 
 import lombok.Data;
 

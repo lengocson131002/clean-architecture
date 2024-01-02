@@ -17,6 +17,12 @@ public class CoreException extends RuntimeException {
         this.errorMessage = String.format(responseCode.getMessage(), params);
     }
 
+    public CoreException(Integer errorCode, String message) {
+        this.code = errorCode;
+        this.errorMessage = message;
+        this.error = "";
+    }
+
     public Integer getCode() {
         return this.code;
     }

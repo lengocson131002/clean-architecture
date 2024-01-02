@@ -1,13 +1,13 @@
 package vn.com.ocb.usecase.auth.handler;
 
-import an.awesome.pipelinr.Command;
 import lombok.RequiredArgsConstructor;
+import vn.com.ocb.dataprovider.UserRepository;
 import vn.com.ocb.domain.User;
 import vn.com.ocb.exception.CoreException;
 import vn.com.ocb.exception.ResponseCode;
 import vn.com.ocb.mapper.UserMapper;
+import vn.com.ocb.pipeline.request.RequestHandler;
 import vn.com.ocb.port.PasswordEncoder;
-import vn.com.ocb.dataprovider.UserRepository;
 import vn.com.ocb.usecase.auth.model.LoginRequest;
 import vn.com.ocb.usecase.user.model.UserDetailResponse;
 
@@ -16,7 +16,7 @@ import java.util.Optional;
 import java.util.concurrent.CompletableFuture;
 
 @RequiredArgsConstructor(onConstructor = @__(@Inject))
-public class LoginHandler implements Command.Handler<LoginRequest, UserDetailResponse> {
+public class LoginHandler extends RequestHandler<LoginRequest, UserDetailResponse> {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
     private final PasswordEncoder passwordEncoder;

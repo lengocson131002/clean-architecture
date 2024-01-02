@@ -5,7 +5,6 @@ import vn.com.ocb.usecase.user.model.UserDetailResponse;
 import vn.com.ocb.usecase.user.model.UserResponse;
 
 import javax.inject.Inject;
-import javax.inject.Singleton;
 
 public class UserMapper {
 

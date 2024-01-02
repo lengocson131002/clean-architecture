@@ -14,6 +14,8 @@ public class ResponseHelper {
 
     public static Integer DEFAULT_HTTP_STATUS_CODE = 200;
 
+    public static Integer HTTP_STATUS_CODE_INTERNAL_SERVER_ERROR = 200;
+
     public static <T> void sendJson(RoutingContext rc, BaseResponse<T> response, int httpStatusCode) {
         HttpServerResponse httpServerResponse = rc.response();
         httpServerResponse.setStatusCode(httpStatusCode);
@@ -34,5 +36,15 @@ public class ResponseHelper {
 
     public static <T> void sendJson(RoutingContext rc, BaseResponse<T> response) {
         sendJson(rc, response, DEFAULT_HTTP_STATUS_CODE);
+    }
+
+    public static void sendError(RoutingContext rc) {
+        BaseResponse<Object> response = BaseResponse
+                .builder()
+                .code(ResponseCode.INTERNAL_SERVER_ERROR.getCode())
+                .message(ResponseCode.INTERNAL_SERVER_ERROR.getMessage())
+                .data(null)
+                .build();
+        sendJson(rc, response, HTTP_STATUS_CODE_INTERNAL_SERVER_ERROR);
     }
 }

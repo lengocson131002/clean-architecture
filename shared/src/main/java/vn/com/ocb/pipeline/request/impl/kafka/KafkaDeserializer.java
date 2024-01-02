@@ -1,7 +1,9 @@
-package vn.com.ocb.adapter.config;
+package vn.com.ocb.pipeline.request.impl.kafka;
 
 import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.json.JsonMapper;
 import org.apache.kafka.common.serialization.Deserializer;
 
 import java.io.IOException;
@@ -9,9 +11,15 @@ import java.util.Map;
 
 public class KafkaDeserializer<T> implements Deserializer<T> {
 
-    private final ObjectMapper objectMapper = new ObjectMapper();
+    private final TypeReference<T> typeReference;
 
-    public KafkaDeserializer() {
+    private final ObjectMapper objectMapper = JsonMapper.builder()
+            .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+            .build();
+
+
+    public KafkaDeserializer(TypeReference<T> typeReference) {
+        this.typeReference = typeReference;
     }
 
     @Override
@@ -26,10 +34,9 @@ public class KafkaDeserializer<T> implements Deserializer<T> {
         }
 
         try {
-            return objectMapper.readValue(data, new TypeReference<T>() {});
+            return objectMapper.readValue(data, typeReference);
         } catch (IOException e) {
             e.printStackTrace();
-            // Handle deserialization exception
         }
         return null;
     }

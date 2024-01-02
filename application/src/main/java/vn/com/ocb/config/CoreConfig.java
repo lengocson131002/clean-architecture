@@ -1,39 +1,42 @@
 package vn.com.ocb.config;
 
-import an.awesome.pipelinr.Pipeline;
-import an.awesome.pipelinr.Pipelinr;
-import dagger.Binds;
 import dagger.Module;
 import dagger.Provides;
-import vn.com.ocb.adapter.IdGeneratorImpl;
-import vn.com.ocb.adapter.PasswordEncoderImpl;
-import vn.com.ocb.port.IdGenerator;
-import vn.com.ocb.port.PasswordEncoder;
+import vn.com.ocb.pipeline.request.RequestPipeline;
+import vn.com.ocb.pipeline.request.impl.def.DefaultRequestPipeline;
+import vn.com.ocb.pipeline.request.impl.kafka.KafkaRequestPipeline;
 import vn.com.ocb.usecase.auth.handler.LoginHandler;
+import vn.com.ocb.usecase.auth.model.LoginRequest;
 import vn.com.ocb.usecase.user.handler.CreateUserHandler;
 import vn.com.ocb.usecase.user.handler.GetAllUsersHandler;
 import vn.com.ocb.usecase.user.handler.GetUserHandler;
 import vn.com.ocb.usecase.user.handler.UpdateUserHandler;
+import vn.com.ocb.usecase.user.model.CreateUserRequest;
+import vn.com.ocb.usecase.user.model.GetAllUserRequest;
+import vn.com.ocb.usecase.user.model.GetUserRequest;
+import vn.com.ocb.usecase.user.model.UpdateUserRequest;
 
 import javax.inject.Singleton;
-import java.util.stream.Stream;
 
 @Module
 public final class CoreConfig {
-
     @Provides
     @Singleton
-    public Pipeline provideUseCasePipeline(
+    public RequestPipeline provideUseCasePipeline(
             GetAllUsersHandler getAllUsersHandler,
             GetUserHandler getUserHandler,
             UpdateUserHandler updateUserHandler,
             CreateUserHandler createUserHandler,
             LoginHandler loginHandler) {
-        return new Pipelinr().with(() -> Stream
-                .of(getAllUsersHandler,
-                        getUserHandler,
-                        createUserHandler,
-                        updateUserHandler,
-                        loginHandler));
+        RequestPipeline pipeline = new DefaultRequestPipeline();
+
+        pipeline
+                .register(getAllUsersHandler)
+                .register(getUserHandler)
+                .register(createUserHandler)
+                .register(updateUserHandler)
+                .register(loginHandler);
+
+        return pipeline;
     }
 }
