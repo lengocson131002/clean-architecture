@@ -74,7 +74,7 @@ public class KafkaRequestPipeline extends RequestPipeline {
                         TResponse response = requestHandler.handle(requestData);
                         kafkaResponseMessage = KafkaMessageUtils.createResponseMessage(requestId, response);
                     } catch (Exception ex) {
-                        log.error("🔥 Error when processing message. Request ID: {}", requestId);
+                        log.error("🔥 Error when processing message. Request ID: {}. Exception: {}", requestId, ex.getMessage());
                         kafkaResponseMessage = KafkaMessageUtils.createErrorResponseMessage(requestId, ex);
                     }
 

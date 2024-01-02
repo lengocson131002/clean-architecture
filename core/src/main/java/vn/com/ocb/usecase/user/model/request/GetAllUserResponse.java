@@ -1,8 +1,9 @@
-package vn.com.ocb.usecase.user.model;
+package vn.com.ocb.usecase.user.model.request;
 
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import vn.com.ocb.usecase.user.model.response.UserResponse;
 
 import java.util.ArrayList;
 

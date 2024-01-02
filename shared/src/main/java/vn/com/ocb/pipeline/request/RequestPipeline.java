@@ -48,9 +48,11 @@ public abstract class RequestPipeline {
         if (!handlers.containsKey(request.getClass())) {
             throw new RequestHandlerNotFoundException(request);
         }
+
         if (!request.isValid()) {
             throw new InvalidRequestException(request);
         }
+
         RequestHandler<TRequest, TResponse> handler = getHandler(request.getClass());
         return handleRequest(request, handler);
     }

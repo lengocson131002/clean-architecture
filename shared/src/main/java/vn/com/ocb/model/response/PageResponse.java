@@ -1,4 +1,4 @@
-package vn.com.ocb.model;
+package vn.com.ocb.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

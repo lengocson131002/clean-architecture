@@ -4,9 +4,9 @@ import lombok.RequiredArgsConstructor;
 import vn.com.ocb.dataprovider.UserRepository;
 import vn.com.ocb.mapper.UserMapper;
 import vn.com.ocb.pipeline.request.RequestHandler;
-import vn.com.ocb.usecase.user.model.GetAllUserRequest;
-import vn.com.ocb.usecase.user.model.GetAllUserResponse;
-import vn.com.ocb.usecase.user.model.UserResponse;
+import vn.com.ocb.usecase.user.model.request.GetAllUserRequest;
+import vn.com.ocb.usecase.user.model.request.GetAllUserResponse;
+import vn.com.ocb.usecase.user.model.response.UserResponse;
 
 import javax.inject.Inject;
 import java.util.List;

@@ -4,64 +4,28 @@ import io.vertx.core.http.HttpHeaders;
 import io.vertx.core.http.HttpServerResponse;
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
-import vn.com.ocb.exception.CoreException;
-import vn.com.ocb.exception.ResponseCode;
-import vn.com.ocb.model.BaseResponse;
+import vn.com.ocb.model.response.BaseResponse;
+import vn.com.ocb.model.response.BaseResponseBuilder;
 
 public class ResponseHelper {
 
     private ResponseHelper() {
     }
 
-    public static Integer DEFAULT_HTTP_STATUS_CODE = 200;
-
-    public static Integer HTTP_STATUS_CODE_INTERNAL_SERVER_ERROR = 500;
-
-    public static <T> void sendJson(RoutingContext rc, BaseResponse<T> response, int httpStatusCode) {
+    public static <T> void sendJson(RoutingContext rc, BaseResponse<T> response) {
         HttpServerResponse httpServerResponse = rc.response();
-        httpServerResponse.setStatusCode(httpStatusCode);
+        httpServerResponse.setStatusCode(response.getStatusCode());
         httpServerResponse.putHeader(HttpHeaders.CONTENT_TYPE, "application/json");
         JsonObject jsonObject = JsonObject.mapFrom(response);
         rc.end(jsonObject.encodePrettily());
     }
 
-    public static <T> void sendJson(RoutingContext rc, T data) {
-        BaseResponse<Object> response = BaseResponse
-                .builder()
-                .code(ResponseCode.SUCCESS.getCode())
-                .message(ResponseCode.SUCCESS.getMessage())
-                .data(data)
-                .build();
-        sendJson(rc, response);
+    public static <T> void sendJson(RoutingContext rc, String requestId, T data) {
+        sendJson(rc, BaseResponseBuilder.buildSuccessResponse(requestId, data));
     }
 
-    public static <T> void sendJson(RoutingContext rc, BaseResponse<T> response) {
-        sendJson(rc, response, DEFAULT_HTTP_STATUS_CODE);
-    }
 
-    public static void sendError(RoutingContext rc) {
-        sendError(rc, null);
-    }
-
-    public static void sendError(RoutingContext rc, Throwable throwable) {
-        BaseResponse<Object> response = null;
-        if (throwable instanceof CoreException) {
-            CoreException ex = (CoreException) throwable;
-            response = BaseResponse
-                    .builder()
-                    .code(ex.getCode())
-                    .message(ex.getMessage())
-                    .error(ex.getError())
-                    .build();
-            sendJson(rc, response, 400);
-        } else {
-            response = BaseResponse
-                    .builder()
-                    .code(ResponseCode.INTERNAL_SERVER_ERROR.getCode())
-                    .error(ResponseCode.INTERNAL_SERVER_ERROR.getMessage())
-                    .message(ResponseCode.INTERNAL_SERVER_ERROR.getMessage())
-                    .build();
-            sendJson(rc, response, 500);
-        }
+    public static void sendError(RoutingContext rc, String requestId, Throwable throwable) {
+        sendJson(rc, BaseResponseBuilder.buildErrorResponse(requestId, throwable));
     }
 }

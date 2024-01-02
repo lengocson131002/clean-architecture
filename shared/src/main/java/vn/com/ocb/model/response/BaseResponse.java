@@ -1,4 +1,4 @@
-package vn.com.ocb.model;
+package vn.com.ocb.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,9 +10,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class BaseResponse<T> {
+    private Integer statusCode;
+    private String requestId;
     private String code;
     private String error;
     private String message;
-    private String requestId;
     private T data;
 }

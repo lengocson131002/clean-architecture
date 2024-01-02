@@ -24,11 +24,8 @@ public class KafkaNotifier<TRequest extends Request<TResponse>, TResponse> {
     private boolean _running = true;
     private final String requestTopic;
     private final String responseTopic;
-
     private final ConcurrentMap<String, CompletableFuture<TResponse>> futures;
-
     private final KafkaProducer<String, KafkaRequestMessage<TRequest>> requestProducer;
-
     private final KafkaConsumer<String, KafkaResponseMessage<TResponse>> responseConsumer;
     private final ScheduledExecutorService scheduledExecutorService;
     private final TypeReference<KafkaRequestMessage<TRequest>> requestMessageTypeReference;
@@ -43,6 +40,7 @@ public class KafkaNotifier<TRequest extends Request<TResponse>, TResponse> {
                 return typeFactory.constructParametricType(KafkaRequestMessage.class, requestClass);
             }
         };
+
         this.responseMessageTypeReference = new TypeReference<>() {
             @Override
             public Type getType() {

@@ -6,7 +6,6 @@ import java.util.UUID;
 public class KafkaConfig {
     public static final String SERVICE_NAME = "service-user";
     public static final long KAFKA_PIPELINE_TIMEOUT_MS = 5_000L; //
-    public static final String HEADER_REQUEST_ID = "requestId";
 
     public static Properties getProducerProps() {
         Properties props = new Properties();

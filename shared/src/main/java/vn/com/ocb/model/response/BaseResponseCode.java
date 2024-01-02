@@ -1,4 +1,4 @@
-package vn.com.ocb.model;
+package vn.com.ocb.model.response;
 
 public interface BaseResponseCode {
     String getCode();

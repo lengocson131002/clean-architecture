@@ -4,12 +4,14 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
 import lombok.RequiredArgsConstructor;
 import vn.com.ocb.pipeline.request.RequestPipeline;
-import vn.com.ocb.usecase.auth.model.LoginRequest;
-import vn.com.ocb.usecase.user.model.*;
+import vn.com.ocb.usecase.auth.model.request.LoginRequest;
+import vn.com.ocb.usecase.user.model.request.CreateUserRequest;
+import vn.com.ocb.usecase.user.model.request.GetAllUserRequest;
+import vn.com.ocb.usecase.user.model.request.GetUserRequest;
+import vn.com.ocb.usecase.user.model.request.UpdateUserRequest;
 import vn.com.rest.utils.ResponseHelper;
 
 import javax.inject.Inject;
-import java.util.concurrent.CompletableFuture;
 
 @RequiredArgsConstructor(onConstructor = @__(@Inject))
 public class UserHandler {
@@ -19,41 +21,43 @@ public class UserHandler {
         JsonObject reqBody = rc.body().asJsonObject();
         String email = reqBody.getString("email");
         String password = reqBody.getString("password");
-        pipeline.send(LoginRequest.builder()
+        LoginRequest request = LoginRequest.builder()
                 .email(email)
                 .password(password)
-                .build()).whenComplete((res, ex) -> {
+                .build();
+
+        pipeline.send(request).whenComplete((res, ex) -> {
             boolean isError = ex != null;
             if (!isError) {
-                ResponseHelper.sendJson(rc, res);
+                ResponseHelper.sendJson(rc, request.getRequestId(), res);
             } else {
-                ResponseHelper.sendError(rc, ex);
+                ResponseHelper.sendError(rc, request.getRequestId(), ex);
             }
         });
-
     }
 
     public void handleGetAllUsers(RoutingContext rc) {
         GetAllUserRequest request = new GetAllUserRequest();
-        CompletableFuture<GetAllUserResponse> response = pipeline.send(request)
+        pipeline.send(request)
                 .whenComplete((res, thr) -> {
                     if (thr == null) {
-                        ResponseHelper.sendJson(rc, res);
+                        ResponseHelper.sendJson(rc, request.getRequestId(), res);
                     } else {
-                        ResponseHelper.sendError(rc, thr);
+                        ResponseHelper.sendError(rc, request.getRequestId(), thr);
                     }
                 });
     }
 
     public void handleGetUserById(RoutingContext rc) {
         String id = rc.request().getParam("userId");
-        pipeline.send(new GetUserRequest(id))
+        GetUserRequest request = new GetUserRequest(id);
+        pipeline.send(request)
                 .whenComplete((res, ex) -> {
                     boolean isError = ex != null;
                     if (!isError) {
-                        ResponseHelper.sendJson(rc, res);
+                        ResponseHelper.sendJson(rc, request.getRequestId(), res);
                     } else {
-                        ResponseHelper.sendError(rc, ex);
+                        ResponseHelper.sendError(rc, request.getRequestId(), ex);
                     }
                 });
     }
@@ -74,9 +78,9 @@ public class UserHandler {
                 .whenComplete((res, ex) -> {
                     boolean isError = ex != null;
                     if (!isError) {
-                        ResponseHelper.sendJson(rc, res);
+                        ResponseHelper.sendJson(rc, request.getRequestId(), res);
                     } else {
-                        ResponseHelper.sendError(rc, ex);
+                        ResponseHelper.sendError(rc, request.getRequestId(), ex);
                     }
                 });
     }
@@ -94,9 +98,9 @@ public class UserHandler {
                 .whenComplete((res, ex) -> {
                     boolean isError = ex != null;
                     if (!isError) {
-                        ResponseHelper.sendJson(rc, res);
+                        ResponseHelper.sendJson(rc, request.getRequestId(), res);
                     } else {
-                        ResponseHelper.sendError(rc, ex);
+                        ResponseHelper.sendError(rc, request.getRequestId(), ex);
                     }
                 });
     }

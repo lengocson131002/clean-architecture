@@ -1,15 +1,14 @@
 package vn.com.ocb.pipeline.request.impl.kafka;
 
 import vn.com.ocb.exception.CoreException;
-import vn.com.ocb.exception.ResponseCode;
 import vn.com.ocb.pipeline.request.Request;
 
 public class KafkaMessageUtils {
+    private static final String INTERNAL_SERVER_ERROR_CODE = "INTERNAL_SERVER_ERROR";
+    private static final String INTERNAL_SERVER_ERROR = "Internal server error";
+
     public static <T extends Request<?>> KafkaRequestMessage<T> createRequestMessage(String requestId, T requestData) {
-        return KafkaRequestMessage.<T>builder()
-                .requestId(requestId)
-                .data(requestData)
-                .build();
+        return new KafkaRequestMessage<>(requestId, requestData);
     }
 
     public static <T> KafkaResponseMessage<T> createResponseMessage(String requestId, T responseData) {
@@ -20,8 +19,8 @@ public class KafkaMessageUtils {
     }
 
     public static <T> KafkaResponseMessage<T> createErrorResponseMessage(String requestId, Throwable throwable) {
-        if (throwable.getCause() instanceof CoreException) {
-            CoreException exception = (CoreException) throwable.getCause();
+        if (throwable instanceof CoreException) {
+            CoreException exception = (CoreException) throwable;
             return KafkaResponseMessage.<T>builder()
                     .requestId(requestId)
                     .errorCode(exception.getCode())
@@ -31,8 +30,8 @@ public class KafkaMessageUtils {
         }
         return KafkaResponseMessage.<T>builder()
                 .requestId(requestId)
-                .errorCode(ResponseCode.INTERNAL_SERVER_ERROR.getCode())
-                .error(ResponseCode.INTERNAL_SERVER_ERROR.toString())
+                .errorCode(INTERNAL_SERVER_ERROR_CODE)
+                .error(INTERNAL_SERVER_ERROR)
                 .errorMessage(throwable.getMessage())
                 .build();
     }

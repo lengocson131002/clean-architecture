@@ -1,4 +1,4 @@
-package vn.com.ocb.usecase.user.model;
+package vn.com.ocb.usecase.user.model.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

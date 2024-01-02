@@ -1,13 +1,12 @@
-package vn.com.ocb.exception;
+package vn.com.ocb.domain;
 
-import vn.com.ocb.model.BaseResponseCode;
+import vn.com.ocb.model.response.BaseResponseCode;
 
 public enum ResponseCode implements BaseResponseCode {
     SUCCESS("0", "Success"),
     UNKNOWN_ERROR("1", "Unknown error"),
     COMMON_ERROR("2", "Common error"),
     INTERNAL_SERVER_ERROR("3", "Internal server error"),
-
 
     USER_ERROR_EXISTED("100", "User existed"),
     USER_ERROR_NOT_FOUND("101", "User not found"),
@@ -16,6 +15,7 @@ public enum ResponseCode implements BaseResponseCode {
     AUTH_ERROR_NOT_ALLOWED("201", "User is not allow to access the system");
 
     private final String code;
+
     private final String message;
 
     ResponseCode(String code, String message) {

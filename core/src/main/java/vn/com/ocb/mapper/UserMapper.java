@@ -1,8 +1,8 @@
 package vn.com.ocb.mapper;
 
 import vn.com.ocb.domain.User;
-import vn.com.ocb.usecase.user.model.UserDetailResponse;
-import vn.com.ocb.usecase.user.model.UserResponse;
+import vn.com.ocb.usecase.user.model.response.UserDetailResponse;
+import vn.com.ocb.usecase.user.model.response.UserResponse;
 
 import javax.inject.Inject;
 import java.time.LocalDateTime;
