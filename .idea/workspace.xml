@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc822e85-d311-4231-8db2-6ce4d6a1fa60" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/config/ApplicationComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/config/ApplicationComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/ocb/rest/constant/config/Bootstrap.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/ocb/rest/constant/config/RestServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/ocb/rest/constant/config/RestServerImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/ocb/rest/constant/exception/RestException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/ocb/rest/constant/handler/FailureHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/ocb/rest/constant/handler/UserHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/ocb/rest/constant/utils/ResponseHelper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/ocb/rest/constant/verticle/ServerVerticle.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/presentation-spring/src/main/java/vn/com/ocb/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/presentation-spring/src/main/java/vn/com/ocb/controller/UserController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
