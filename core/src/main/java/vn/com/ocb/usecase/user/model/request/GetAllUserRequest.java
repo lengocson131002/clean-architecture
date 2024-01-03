@@ -16,8 +16,6 @@ public class GetAllUserRequest extends Request<GetAllUserResponse> {
 
     private String search;
 
-    private LocalDateTime timestamp = LocalDateTime.now();
-
     @Override
     public boolean isValid() {
         return true;

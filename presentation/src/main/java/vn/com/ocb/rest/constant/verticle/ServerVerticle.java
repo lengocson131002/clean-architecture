@@ -1,17 +1,15 @@
-package vn.com.rest.verticle;
+package vn.com.ocb.rest.constant.verticle;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
 import io.vertx.core.http.HttpServer;
-import io.vertx.core.impl.logging.Logger;
-import io.vertx.core.impl.logging.LoggerFactory;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.ext.web.handler.LoggerHandler;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import vn.com.rest.handler.FailureHandler;
-import vn.com.rest.handler.UserHandler;
+import vn.com.ocb.rest.constant.handler.FailureHandler;
+import vn.com.ocb.rest.constant.handler.UserHandler;
 
 import javax.inject.Inject;
 

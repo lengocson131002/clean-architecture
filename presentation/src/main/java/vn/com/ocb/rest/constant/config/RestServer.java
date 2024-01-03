@@ -1,4 +1,4 @@
-package vn.com.rest.config;
+package vn.com.ocb.rest.constant.config;
 
 import io.vertx.core.Future;
 

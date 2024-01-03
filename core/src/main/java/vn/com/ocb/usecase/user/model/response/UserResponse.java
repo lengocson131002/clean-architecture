@@ -17,5 +17,4 @@ public class UserResponse {
     private String password;
     private String lastName;
     private String firstName;
-    private LocalDateTime timestamp = LocalDateTime.now();
 }

@@ -1,4 +1,4 @@
-package vn.com.rest.utils;
+package vn.com.ocb.rest.constant.utils;
 
 import io.vertx.core.http.HttpHeaders;
 import io.vertx.core.http.HttpServerResponse;

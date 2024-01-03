@@ -4,7 +4,8 @@ import dagger.BindsInstance;
 import dagger.Component;
 import io.vertx.core.http.HttpServerOptions;
 import io.vertx.sqlclient.Pool;
-import vn.com.rest.config.Bootstrap;
+import vn.com.ocb.pipeline.request.RequestPipeline;
+import vn.com.ocb.rest.constant.config.Bootstrap;
 
 import javax.inject.Singleton;
 
@@ -21,25 +22,6 @@ public interface ApplicationComponent {
 
     Pool pool();
 
-    /**
-     * Builder for the main dagger component.
-     */
-    @Component.Builder
-    interface Builder {
-        /**
-         * Inject the options.
-         *
-         * @param options
-         * @return
-         */
-        @BindsInstance
-        Builder configuration(HttpServerOptions options);
+    RequestPipeline requestPipeline();
 
-        /**
-         * Build the component.
-         *
-         * @return
-         */
-        ApplicationComponent build();
-    }
 }

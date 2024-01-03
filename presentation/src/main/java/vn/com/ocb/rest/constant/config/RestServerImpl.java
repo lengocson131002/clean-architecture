@@ -1,9 +1,9 @@
-package vn.com.rest.config;
+package vn.com.ocb.rest.constant.config;
 
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
 import lombok.RequiredArgsConstructor;
-import vn.com.rest.verticle.ServerVerticle;
+import vn.com.ocb.rest.constant.verticle.ServerVerticle;
 
 import javax.inject.Inject;
 import javax.inject.Provider;

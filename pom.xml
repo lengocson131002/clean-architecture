@@ -14,6 +14,7 @@
         <module>infrastructure</module>
         <module>presentation</module>
         <module>shared</module>
+        <module>presentation-spring</module>
     </modules>
 
     <properties>
@@ -21,12 +22,9 @@
         <maven.compiler.target>11</maven.compiler.target>
         <version.maven-shade>3.5.1</version.maven-shade>
         <version.lombok>1.18.28</version.lombok>
-        <version.dagger>2.49</version.dagger>
         <version.maven-compiler>3.8.1</version.maven-compiler>
         <version.common-lang3>3.12.0</version.common-lang3>
         <verson.jackson-databind>2.16.0</verson.jackson-databind>
-        <version.vertx>4.5.0</version.vertx>
-        <version.gson>2.10.1</version.gson>
         <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
         <launcher.class>vn.com.ocb.Main</launcher.class>
         <version.kafka-client>3.6.1</version.kafka-client>
@@ -34,6 +32,9 @@
         <version.sl4j-simple>2.0.9</version.sl4j-simple>
         <version.jackson>2.16.0</version.jackson>
         <version.jackson-datatype-jsr310>2.16.0</version.jackson-datatype-jsr310>
+        <version.dagger>2.49</version.dagger>
+        <version.commons-codec>1.16.0</version.commons-codec>
+        <version.vertx>4.5.0</version.vertx>
     </properties>
 
     <dependencyManagement>
@@ -45,11 +46,6 @@
                 <scope>provided</scope>
             </dependency>
             <dependency>
-                <groupId>com.google.dagger</groupId>
-                <artifactId>dagger</artifactId>
-                <version>${version.dagger}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${version.common-lang3}</version>
@@ -58,24 +54,6 @@
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
                 <version>${verson.jackson-databind}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.google.dagger</groupId>
-                <artifactId>dagger-compiler</artifactId>
-                <version>${version.dagger}</version>
-                <optional>true</optional>
-            </dependency>
-            <dependency>
-                <groupId>io.vertx</groupId>
-                <artifactId>vertx-stack-depchain</artifactId>
-                <version>${version.vertx}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-            <dependency>
-                <groupId>com.google.code.gson</groupId>
-                <artifactId>gson</artifactId>
-                <version>${version.gson}</version>
             </dependency>
             <dependency>
                 <groupId>javax.inject</groupId>

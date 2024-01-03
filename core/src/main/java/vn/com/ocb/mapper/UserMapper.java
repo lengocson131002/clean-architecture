@@ -24,7 +24,6 @@ public class UserMapper {
                 .password(user.getPassword())
                 .firstName(user.getFirstName())
                 .lastName(user.getLastName())
-                .timestamp(LocalDateTime.now())
                 .build();
     }
 

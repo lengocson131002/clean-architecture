@@ -23,7 +23,7 @@ public final class CoreConfig {
             UpdateUserHandler updateUserHandler,
             CreateUserHandler createUserHandler,
             LoginHandler loginHandler) {
-        RequestPipeline pipeline = new KafkaRequestPipeline();
+        RequestPipeline pipeline = new DefaultRequestPipeline();
 
         pipeline
                 .register(getAllUsersHandler)

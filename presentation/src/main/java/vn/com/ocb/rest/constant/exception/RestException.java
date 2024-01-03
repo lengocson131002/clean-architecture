@@ -1,4 +1,4 @@
-package vn.com.rest.exception;
+package vn.com.ocb.rest.constant.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

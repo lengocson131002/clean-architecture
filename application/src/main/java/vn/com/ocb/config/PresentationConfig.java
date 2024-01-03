@@ -9,8 +9,8 @@ import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.http.HttpServerOptions;
 import io.vertx.ext.web.Router;
-import vn.com.rest.config.RestServer;
-import vn.com.rest.config.RestServerImpl;
+import vn.com.ocb.rest.constant.config.RestServer;
+import vn.com.ocb.rest.constant.config.RestServerImpl;
 
 import javax.inject.Singleton;
 
@@ -54,5 +54,14 @@ public class PresentationConfig {
     @Provides
     public Router router(Vertx vertx) {
         return Router.router(vertx);
+    }
+
+    @Provides
+    @Singleton
+    public HttpServerOptions httpServerOptions() {
+        // Vertx application
+        HttpServerOptions options = new HttpServerOptions();
+        options.setPort(8080);
+        return options;
     }
 }

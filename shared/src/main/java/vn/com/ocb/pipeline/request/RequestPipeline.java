@@ -58,20 +58,20 @@ public abstract class RequestPipeline {
     }
 
     @SuppressWarnings("unchecked")
-    public <TResponse, TRequest extends Request<TResponse>> RequestHandler<TRequest, TResponse> getHandler(Class<TRequest> requestType) {
+    protected <TResponse, TRequest extends Request<TResponse>> RequestHandler<TRequest, TResponse> getHandler(Class<TRequest> requestType) {
         if (!handlers.containsKey(requestType)) {
             throw new RequestHandlerNotFoundException(requestType);
         }
         return (RequestHandler<TRequest, TResponse>) handlers.get(requestType);
     }
 
-    public abstract <TRequest extends Request<TResponse>, TResponse> void onHandlerRegistered(
+    protected abstract <TRequest extends Request<TResponse>, TResponse> void onHandlerRegistered(
             Class<TRequest> requestClass,
             Class<TResponse> responseClass,
             RequestHandler<TRequest, TResponse> handler);
 
 
-    public abstract <TRequest extends Request<TResponse>, TResponse> CompletableFuture<TResponse> handleRequest(
+    protected abstract <TRequest extends Request<TResponse>, TResponse> CompletableFuture<TResponse> handleRequest(
             TRequest request,
             RequestHandler<TRequest, TResponse> handler);
 
