@@ -5,44 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cc822e85-d311-4231-8db2-6ce4d6a1fa60" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/request/CreateUserRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/response/BaseResponseBuilder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/response/ListResponse.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/config/ApplicationComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/config/ApplicationComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/config/CoreConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/config/CoreConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/config/DataConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/application/src/main/java/vn/com/ocb/config/DataConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/mapper/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/mapper/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/auth/handler/LoginHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/auth/handler/LoginHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/auth/model/LoginRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/auth/model/request/LoginRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/CreateUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/CreateUserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/GetAllUsersHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/GetAllUsersHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/GetUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/GetUserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/UpdateUserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/handler/UpdateUserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/CreateUserRequest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/GetAllUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/request/GetAllUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/GetAllUserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/request/GetAllUserResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/GetUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/request/GetUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/UpdateUserRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/request/UpdateUserRequest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/UserDetailResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/response/UserDetailResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/UserResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/model/response/UserResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/usecase/user/v2/model/GetAllUserRequestV2.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/validation/UserValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/rest/handler/FailureHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/src/main/java/vn/com/rest/handler/FailureHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/rest/handler/UserHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/src/main/java/vn/com/rest/handler/UserHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/presentation/src/main/java/vn/com/rest/utils/ResponseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/presentation/src/main/java/vn/com/rest/utils/ResponseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/exception/CoreException.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/exception/CoreException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/exception/ResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/core/src/main/java/vn/com/ocb/domain/ResponseCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/BaseResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/response/BaseResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/BaseResponseCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/response/BaseResponseCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/ListResponse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/PageResponse.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/response/PageResponse.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/model/ResponseBuilder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/RequestPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/RequestPipeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaMessage.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaMessageUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaMessageUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaNotifier.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaNotifier.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaRequestMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaRequestMessage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaRequestPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/shared/src/main/java/vn/com/ocb/pipeline/request/impl/kafka/KafkaRequestPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/infrastructure/src/main/java/vn/com/ocb/data/mysql/repository/UserMysqlRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/infrastructure/src/main/java/vn/com/ocb/data/mysql/repository/UserMysqlRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,24 +41,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "E:/programming/clean-architecture/core/src/main/java/vn/com/ocb/usecase/auth/model",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;E:/programming/clean-architecture/core/src/main/java/vn/com/ocb/usecase/auth/model&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\programming\clean-architecture\core\src\main\java\vn\com\ocb\usecase\auth\model" />

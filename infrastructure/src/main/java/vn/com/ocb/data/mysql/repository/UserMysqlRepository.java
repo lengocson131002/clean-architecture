@@ -1,154 +1,90 @@
 package vn.com.ocb.data.mysql.repository;
 
-import io.vertx.core.Future;
 import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
-import io.vertx.core.json.JsonObject;
-import io.vertx.mysqlclient.MySQLClient;
 import io.vertx.sqlclient.Pool;
-import io.vertx.sqlclient.Row;
-import io.vertx.sqlclient.Tuple;
-import lombok.RequiredArgsConstructor;
-import vn.com.ocb.domain.User;
+import lombok.extern.slf4j.Slf4j;
 import vn.com.ocb.dataprovider.UserRepository;
+import vn.com.ocb.domain.User;
 
 import javax.inject.Inject;
-import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Optional;
-import java.util.concurrent.CompletableFuture;
 
-@RequiredArgsConstructor(onConstructor = @__(@Inject))
+@Slf4j
 public class UserMysqlRepository implements UserRepository {
-
     private final Pool sqlPool;
-    private final Logger logger = LoggerFactory.getLogger(UserMysqlRepository.class);
     private static final String SQL_INSERT = "INSERT INTO user (id, email, password, firstName, lastName) VALUES (?, ?, ?, ?, ?)";
     private static final String SQL_SELECT = "SELECT * FROM user";
     private static final String SQL_SELECT_BY_ID = "SELECT * FROM user WHERE id=?";
     private static final String SQL_SELECT_BY_EMAIL = "SELECT * FROM user WHERE email=?";
     private static final String SQL_UPDATE = "UPDATE user SET email=?, password=?, firstName=?, lastName=? WHERE id=?";
 
+    private final BaseUserRepository baseUserRepository;
+
+    @Inject
+    public UserMysqlRepository(Pool sqlPool) {
+        this.sqlPool = sqlPool;
+        this.baseUserRepository = new BaseUserRepository(sqlPool);
+    }
+
+
     @Override
     public User save(User user) {
-        Tuple params = Tuple.of(
-                user.getId(),
-                user.getEmail(),
-                user.getPassword(),
-                user.getFirstName(),
-                user.getLastName());
+        LinkedHashMap<String, Object> params = new LinkedHashMap<>();
+        params.put("id", user.getId());
+        params.put("email", user.getEmail());
+        params.put("password", user.getPassword());
+        params.put("firstName", user.getFirstName());
+        params.put("lastName", user.getLastName());
 
-        Future<User> queryFuture = sqlPool.getConnection()
-                .compose(conn -> conn.preparedQuery(SQL_INSERT)
-                        .execute(params)
-                        .map(res -> user)
-                        .onComplete(ar -> {
-                            conn.close();
-                        }));
+        int rowCounts = baseUserRepository.execute(SQL_INSERT, params);
+        if (rowCounts > 0) {
+            return user;
+        } else {
+            log.error("Error when save user");
+        }
 
-        CompletableFuture<User> userFuture = queryFuture.toCompletionStage().toCompletableFuture();
-        return userFuture.join();
+        return null;
     }
 
     @Override
     public User update(User user) {
-        Tuple params = Tuple.of(
-                user.getEmail(),
-                user.getPassword(),
-                user.getFirstName(),
-                user.getLastName(),
-                user.getId()
-        );
+        LinkedHashMap<String, Object> params = new LinkedHashMap<>();
+        params.put("email", user.getEmail());
+        params.put("password", user.getPassword());
+        params.put("firstName", user.getFirstName());
+        params.put("lastName", user.getLastName());
+        params.put("id", user.getId());
 
-        Future<User> queryFuture = sqlPool
-                .getConnection()
-                .compose(conn -> conn.preparedQuery(SQL_UPDATE)
-                        .execute(params)
-                        .map(res -> user)
-                        .onComplete(ar -> {
-                            conn.close();
-                        }));
+        int rowCounts = baseUserRepository.execute(SQL_UPDATE, params);
+        if (rowCounts > 0) {
+            return user;
+        } else {
+            log.error("Error when update user");
+        }
 
-        CompletableFuture<User> userFuture = queryFuture.toCompletionStage().toCompletableFuture();
-        return userFuture.join();
+        return null;
     }
 
     @Override
     public Optional<User> findById(String id) {
-        Tuple params = Tuple.of(id);
-        return sqlPool.getConnection()
-                .compose(conn -> conn
-                        .preparedQuery(SQL_SELECT_BY_ID)
-                        .execute(params)
-                        .map(res -> {
-                            for (Row row : res) {
-                                User user = User.builder()
-                                        .id(row.getString("id"))
-                                        .email(row.getString("email"))
-                                        .password(row.getString("password"))
-                                        .firstName(row.getString("firstName"))
-                                        .lastName(row.getString("lastName"))
-                                        .build();
-                                return Optional.of(user);
-                            }
-                            return Optional.<User>empty();
-                        })
-                        .onComplete(ar -> {
-                            conn.close();
-                        }))
-                .toCompletionStage()
-                .toCompletableFuture()
-                .join();
+        LinkedHashMap<String, Object> params = new LinkedHashMap<>();
+        params.put("id", id);
+        return baseUserRepository.querySingle(SQL_SELECT_BY_ID, params);
     }
 
     @Override
     public Optional<User> findByEmail(String email) {
-        Tuple params = Tuple.of(email);
-        return sqlPool.getConnection()
-                .compose(conn -> conn
-                        .preparedQuery(SQL_SELECT_BY_EMAIL)
-                        .execute(params)
-                        .map(rs -> {
-                            for (Row row : rs) {
-                                User user = User.builder()
-                                        .id(row.getString("id"))
-                                        .email(row.getString("email"))
-                                        .password(row.getString("password"))
-                                        .firstName(row.getString("firstName"))
-                                        .lastName(row.getString("lastName"))
-                                        .build();
-                                return Optional.of(user);
-                            }
-                            return Optional.<User>empty();
-                        }).onComplete(ar -> conn.close()))
-                .toCompletionStage()
-                .toCompletableFuture()
-                .join();
+        LinkedHashMap<String, Object> params = new LinkedHashMap<>();
+        params.put("email", email);
+        return baseUserRepository.querySingle(SQL_SELECT_BY_EMAIL, params);
     }
 
     @Override
     public List<User> findAll() {
-        CompletableFuture<List<User>> getAllUsers;
-        Future<List<User>> usersFuture = sqlPool.getConnection()
-                .compose(conn -> conn.query(SQL_SELECT)
-                        .execute()
-                        .map(rows -> {
-                            List<User> users = new ArrayList<>();
-                            for (Row row : rows) {
-                                User user = User.builder()
-                                        .id(row.getString("id"))
-                                        .email(row.getString("email"))
-                                        .password(row.getString("password"))
-                                        .firstName(row.getString("firstName"))
-                                        .lastName(row.getString("lastName"))
-                                        .build();
-                                users.add(user);
-                            }
-                            return users;
-                        }).onComplete(ar -> conn.close()));
-
-        getAllUsers = usersFuture.toCompletionStage().toCompletableFuture();
-        return getAllUsers.join();
+        return new ArrayList<>(baseUserRepository.queryMultiple(SQL_SELECT, new LinkedHashMap<>()));
     }
 }

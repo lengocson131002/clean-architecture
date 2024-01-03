@@ -17,8 +17,8 @@ import vn.com.ocb.dataprovider.UserRepository;
 import javax.inject.Singleton;
 
 @Module(includes = {
-        DataConfig.UserInMemoryRepositoryModule.class,
-//        DataConfig.UserMqlRepositoryModule.class,
+//        DataConfig.UserInMemoryRepositoryModule.class,
+        DataConfig.UserMqlRepositoryModule.class,
 })
 public class DataConfig {
 

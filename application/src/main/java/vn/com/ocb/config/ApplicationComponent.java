@@ -26,7 +26,6 @@ public interface ApplicationComponent {
      */
     @Component.Builder
     interface Builder {
-
         /**
          * Inject the options.
          *
