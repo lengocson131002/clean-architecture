@@ -1,4 +1,4 @@
-package vn.com.ocb.rest.constant.handler;
+package vn.com.ocb.rest.handler;
 
 import io.vertx.core.Handler;
 import io.vertx.ext.web.RoutingContext;

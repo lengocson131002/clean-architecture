@@ -1,10 +1,10 @@
-package vn.com.ocb.rest.constant.handler;
+package vn.com.ocb.rest.handler;
 
 import io.vertx.core.json.JsonObject;
 import io.vertx.ext.web.RoutingContext;
 import lombok.RequiredArgsConstructor;
 import vn.com.ocb.pipeline.request.RequestPipeline;
-import vn.com.ocb.rest.constant.utils.ResponseHelper;
+import vn.com.ocb.rest.utils.ResponseHelper;
 import vn.com.ocb.usecase.auth.model.request.LoginRequest;
 import vn.com.ocb.usecase.user.model.request.CreateUserRequest;
 import vn.com.ocb.usecase.user.model.request.GetAllUserRequest;

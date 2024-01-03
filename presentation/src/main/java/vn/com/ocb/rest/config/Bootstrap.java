@@ -1,12 +1,10 @@
-package vn.com.ocb.rest.constant.config;
+package vn.com.ocb.rest.config;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
 @Slf4j
 @Singleton

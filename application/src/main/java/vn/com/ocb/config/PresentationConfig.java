@@ -9,8 +9,8 @@ import io.vertx.core.eventbus.EventBus;
 import io.vertx.core.http.HttpServer;
 import io.vertx.core.http.HttpServerOptions;
 import io.vertx.ext.web.Router;
-import vn.com.ocb.rest.constant.config.RestServer;
-import vn.com.ocb.rest.constant.config.RestServerImpl;
+import vn.com.ocb.rest.config.RestServer;
+import vn.com.ocb.rest.config.RestServerImpl;
 
 import javax.inject.Singleton;
 

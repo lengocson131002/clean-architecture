@@ -1,4 +1,4 @@
-package vn.com.ocb.rest.constant.verticle;
+package vn.com.ocb.rest.verticle;
 
 import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Promise;
@@ -8,8 +8,8 @@ import io.vertx.ext.web.handler.BodyHandler;
 import io.vertx.ext.web.handler.LoggerHandler;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import vn.com.ocb.rest.constant.handler.FailureHandler;
-import vn.com.ocb.rest.constant.handler.UserHandler;
+import vn.com.ocb.rest.handler.FailureHandler;
+import vn.com.ocb.rest.handler.UserHandler;
 
 import javax.inject.Inject;
 
